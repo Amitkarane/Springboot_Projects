@@ -1,0 +1,8 @@
+#spring.application.name=Library Management System
+Spring:
+  application:
+    name: lms
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lms
+    username: postgres
+    password: anushka567
