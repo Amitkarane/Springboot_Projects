@@ -40,7 +40,7 @@ public class taskService {
 
     public taskData updateTaskStatus(int id, taskData task){
         Optional<taskData> taskOptional=taskrepository.findById(id);
-        taskData savedTask= taskOptional.get();
+        taskData savedTask= taskOptional.get(); //kbvsovno
 
         savedTask.setCompleted(task.isCompleted());
 
