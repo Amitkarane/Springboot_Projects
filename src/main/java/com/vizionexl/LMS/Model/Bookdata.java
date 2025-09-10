@@ -1,9 +1,6 @@
 package com.vizionexl.LMS.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 //table mapping done here
 @Entity
@@ -27,15 +24,40 @@ public class Bookdata{
     @Column(name="book_type",length=50)
     private String bookType;
 
+    @Column(name="borrowed_status")
+    private boolean borrowed_status=false;
+
+    @ManyToOne
+    @JoinColumn(name="borrowed_by_id",referencedColumnName = "id")
+    private UserData borrowedBy;
+
+    public boolean isBorrowed_status() {
+        return borrowed_status;
+    }
+
+    public void setBorrowed_status(boolean borrowed_status) {
+        this.borrowed_status = borrowed_status;
+    }
+
+    public UserData getBorrowedBy() {
+        return borrowedBy;
+    }
+
+    public void setBorrowedBy(UserData borrowedBy) {
+        this.borrowedBy = borrowedBy;
+    }
+
     public Bookdata(){
     }
 
-    public Bookdata(int id, String bookName, String authorName, int yearOfPublication, String bookType) {
+    public Bookdata(int id, String bookName, String authorName, int yearOfPublication, String bookType, boolean borrowed_status, UserData borrowedBy) {
         this.id = id;
         this.bookName = bookName;
         this.authorName = authorName;
         this.yearOfPublication = yearOfPublication;
         this.bookType = bookType;
+        this.borrowed_status = borrowed_status;
+        this.borrowedBy = borrowedBy;
     }
 
     public int getId() {
