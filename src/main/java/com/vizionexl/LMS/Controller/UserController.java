@@ -23,5 +23,9 @@ public class UserController {
         return userservice.SaveUser(user);
     }
 
+    @DeleteMapping("/{id}/delete")
+    public String DeleteUser(@PathVariable("id") Long UserId){
+        return userservice.DeleteUser(UserId);
+    }
 
 }

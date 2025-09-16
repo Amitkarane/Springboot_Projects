@@ -36,8 +36,8 @@ public class bookController {
 
 //    this is used to delete the book by id
     @DeleteMapping("/{id}")
-    public String deleteBook(@PathVariable int id){ //PathVariable- Path(URL) Variable( Value )
-        return bookService.deleteBook(id);
+    public String deleteBook(@PathVariable("id") int BookId){ //PathVariable- Path(URL) Variable( Value )
+        return bookService.deleteBook(BookId);
     }
 
 //    this is used to update the book

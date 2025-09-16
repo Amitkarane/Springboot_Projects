@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class UserData {
 
     @Id
-    @Column(name="id")
+    @Column(name="user_id")
 
     private Long id;
 

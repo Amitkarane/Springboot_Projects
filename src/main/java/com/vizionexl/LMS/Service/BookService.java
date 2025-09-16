@@ -6,6 +6,7 @@ import com.vizionexl.LMS.DAO.bookRepository;
 import com.vizionexl.LMS.Model.Bookdata;
 import com.vizionexl.LMS.Model.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,16 +22,16 @@ public class BookService {
     private UserRepository userrepository;
 
     public List<Bookdata> getBooks(){
-        return bookRepository.findAll();
+        return bookRepository.findAll(Sort.by(Sort.by(Sort.Direction.ASC,"id").toList()));
     }
 
     public Bookdata saveBook(Bookdata book){
         return bookRepository.save(book);
     }
 
-    public String deleteBook(int id){
-        bookRepository.deleteById(id);
-        return "The book with the id " + id + " is deleted.";
+    public String deleteBook(int BookId){
+        bookRepository.deleteById(BookId);
+        return "The book with the id " + BookId + " is deleted.";
     }
 
     public Bookdata updateBook(int id, Bookdata book){

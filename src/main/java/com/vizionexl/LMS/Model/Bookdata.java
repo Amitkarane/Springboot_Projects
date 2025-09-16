@@ -28,7 +28,7 @@ public class Bookdata{
     private boolean borrowed_status=false;
 
     @ManyToOne
-    @JoinColumn(name="borrowed_by_id",referencedColumnName = "id")
+    @JoinColumn(name="borrowed_by_id",referencedColumnName = "user_id")
     private UserData borrowedBy;
 
     public boolean isBorrowed_status() {
